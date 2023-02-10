@@ -6,6 +6,7 @@ from rlbench.action_modes.gripper_action_modes import Discrete
 from rlbench.environment import Environment
 from rlbench.observation_config import ObservationConfig
 from rlbench.tasks import ReachTarget
+from rlbench.tasks import CloseBox
 
 
 class ImitationLearning(object):
@@ -28,7 +29,7 @@ env = Environment(
     action_mode=MoveArmThenGripper(
         arm_action_mode=JointVelocity(), gripper_action_mode=Discrete()),
     obs_config=ObservationConfig(),
-    headless=False)
+    headless=False, robot_setup='ur10')
 env.launch()
 
 task = env.get_task(ReachTarget)

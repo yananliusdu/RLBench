@@ -26,7 +26,7 @@ env = Environment(
     action_mode=MoveArmThenGripper(
         arm_action_mode=JointVelocity(), gripper_action_mode=Discrete()),
     obs_config=ObservationConfig(),
-    headless=False)
+    headless=False, robot_setup='ur5')
 env.launch()
 
 agent = Agent(env.action_shape)

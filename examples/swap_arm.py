@@ -6,6 +6,7 @@ from rlbench.action_modes.gripper_action_modes import Discrete
 from rlbench.environment import Environment
 from rlbench.observation_config import ObservationConfig
 from rlbench.tasks import ReachTarget
+from rlbench.tasks import CloseBox
 
 
 class Agent(object):
@@ -30,7 +31,7 @@ env = Environment(
     robot_setup='ur10')
 env.launch()
 
-task = env.get_task(ReachTarget)
+task = env.get_task(CloseBox)
 
 agent = Agent(env.action_shape)  # 6DoF + 1 for gripper
 
