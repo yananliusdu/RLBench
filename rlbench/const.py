@@ -3,6 +3,7 @@ from pyrep.robots.arms.mico import Mico
 from pyrep.robots.arms.panda import Panda
 from pyrep.robots.arms.sawyer import Sawyer
 from pyrep.robots.arms.ur5 import UR5
+from pyrep.robots.arms.ur10 import UR10
 from pyrep.robots.end_effectors.baxter_gripper import BaxterGripper
 from pyrep.robots.end_effectors.jaco_gripper import JacoGripper
 from pyrep.robots.end_effectors.mico_gripper import MicoGripper
@@ -41,4 +42,5 @@ SUPPORTED_ROBOTS = {
     'mico': (Mico, MicoGripper, 6),
     'sawyer': (Sawyer, BaxterGripper, 7),
     'ur5': (UR5, Robotiq85Gripper, 6),
+    'ur10': (UR10, Robotiq85Gripper, 6),
 }

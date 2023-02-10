@@ -27,7 +27,7 @@ action_mode = MoveArmThenGripper(
     arm_action_mode=JointVelocity(), gripper_action_mode=Discrete())
 env = Environment(
     action_mode, obs_config=obs_config, headless=False,
-    robot_setup='sawyer')
+    robot_setup='ur10')
 env.launch()
 
 task = env.get_task(ReachTarget)
