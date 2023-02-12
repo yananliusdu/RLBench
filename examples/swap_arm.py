@@ -5,9 +5,9 @@ from rlbench.action_modes.arm_action_modes import JointVelocity
 from rlbench.action_modes.gripper_action_modes import Discrete
 from rlbench.environment import Environment
 from rlbench.observation_config import ObservationConfig
-# from rlbench.tasks import ReachTarget
+from rlbench.tasks import ReachTarget
 from rlbench.tasks import CloseBox
-
+from rlbench.tasks import PickUpCup
 
 class Agent(object):
 
@@ -31,7 +31,7 @@ env = Environment(
     robot_setup='ur10')
 env.launch()
 
-task = env.get_task(CloseBox)
+task = env.get_task(ReachTarget)
 
 agent = Agent(env.action_shape)  # 6DoF + 1 for gripper
 

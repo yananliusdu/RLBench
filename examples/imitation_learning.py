@@ -7,12 +7,14 @@ from rlbench.environment import Environment
 from rlbench.observation_config import ObservationConfig
 from rlbench.tasks import ReachTarget
 from rlbench.tasks import CloseBox
+from rlbench.tasks import PickUpCup
+from rlbench.tasks import PickAndLift
 
 
 class ImitationLearning(object):
 
     def predict_action(self, batch):
-        return np.random.uniform(size=(len(batch), 7))
+        return np.random.uniform(size=(len(batch), 6))
 
     def behaviour_cloning_loss(self, ground_truth_actions, predicted_actions):
         return 1
@@ -20,7 +22,7 @@ class ImitationLearning(object):
 
 # To use 'saved' demos, set the path below, and set live_demos=False
 live_demos = True
-DATASET = '' if live_demos else 'PATH/TO/YOUR/DATASET'
+DATASET = '' if live_demos else '/media/yanan/Yanan Liu/Dataset_ubuntu'
 
 obs_config = ObservationConfig()
 obs_config.set_all(True)
@@ -36,7 +38,7 @@ task = env.get_task(ReachTarget)
 
 il = ImitationLearning()
 
-demos = task.get_demos(20, live_demos=live_demos)  # -> List[List[Observation]]
+demos = task.get_demos(2, live_demos=live_demos)  # -> List[List[Observation]]
 demos = np.array(demos).flatten()
 
 # An example of using the demos to 'train' using behaviour cloning loss.
