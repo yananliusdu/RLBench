@@ -29,14 +29,14 @@ env = Environment(
     action_mode=MoveArmThenGripper(
         arm_action_mode=JointVelocity(), gripper_action_mode=Discrete()),
     obs_config=ObservationConfig(),
-    headless=False, robot_setup='ur10')
+    headless=False, robot_setup='ur5')
 env.launch()
 
 task = env.get_task(ReachTarget)
 
 il = ImitationLearning()
 
-demos = task.get_demos(2, live_demos=live_demos)  # -> List[List[Observation]]
+demos = task.get_demos(20, live_demos=live_demos)  # -> List[List[Observation]]
 demos = np.array(demos).flatten()
 
 # An example of using the demos to 'train' using behaviour cloning loss.
